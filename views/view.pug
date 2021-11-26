@@ -1,0 +1,17 @@
+extends layout
+block content 
+    .container.my-5 
+        table.table 
+            thead 
+                tr 
+                    td #
+                    td Title 
+                    td Description 
+                    td Operation
+            tbody 
+                each val in notes 
+                    tr 
+                        td 1
+                        td=val.title
+                        td=val.description
+                        td Fuck

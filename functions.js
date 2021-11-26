@@ -19,8 +19,18 @@ function addNote(body){
     });
 }
 
+function getNotes() {
+    var result;
+    note.find({},function(err, obj){
+        if(err) return console.error(err);
+    });
+    console.log(result);
+    return result;
+}
+
 let obj = {
     addNote,
+    getNotes
 };
 
 module.exports = obj;

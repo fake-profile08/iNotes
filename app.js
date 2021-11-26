@@ -33,7 +33,7 @@ app.post('/',(req,res) => {
     functions.addNote(req.body);
     res.status(200);
     res.send("Saved");
-})
+});
 
 app.get('/contact',(req,res) => {
     const params = {
@@ -43,11 +43,13 @@ app.get('/contact',(req,res) => {
     res.render('contact',params)
 });
 
-app.get('/about',(req,res) => {
+app.get('/view',(req,res) => {
     const params = {
-        title:"About Us"
+        title:"View Notes",
+        // notes:functions.getNotes()
     };
-    res.status(200).render('about',params);
+    console.log(functions.getNotes());
+    res.status(200).render('view',params);
 })
 
 app.listen(port,() => {
