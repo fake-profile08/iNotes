@@ -1,4 +1,11 @@
 extends layout.pug 
 block content 
-    form(action="/",method="post")
-         
+    .container.my-4
+        form(action="/",method="post")
+        .mb-3 
+            label.form-label(for = "title") Note Title 
+            input.form-control#title(type="text" name="title")
+        .mb-3 
+            label.form-label(for = "description") Note Description
+            textarea.form-control#description(type="text" name="description" cols = "30" rows = "10")
+        button.btn.btn-primary(type = "submit") Add Note
