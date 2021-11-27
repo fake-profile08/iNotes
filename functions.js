@@ -23,6 +23,8 @@ function getNotes() {
     var result;
     note.find({},function(err, obj){
         if(err) return console.error(err);
+        result = obj;
+        console.log("obj = "+obj);
     });
     console.log(result);
     return result;

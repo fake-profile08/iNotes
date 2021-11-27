@@ -46,7 +46,7 @@ app.get('/contact',(req,res) => {
 app.get('/view',(req,res) => {
     const params = {
         title:"View Notes",
-        // notes:functions.getNotes()
+        notes:functions.getNotes()
     };
     console.log(functions.getNotes());
     res.status(200).render('view',params);
@@ -55,3 +55,5 @@ app.get('/view',(req,res) => {
 app.listen(port,() => {
     console.log("Server is online");
 })
+
+console.log(functions.getNotes());
