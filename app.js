@@ -7,6 +7,8 @@ const path = require('path');
 const functions = require('./functions');
 mongoose.connect('mongodb://localhost:27017/iNotes');
 
+functions.storeNotes();
+
 app.set('view engine','pug');
 app.set('views',path.join(__dirname,'views'));
 app.use('/static',express.static('static'));
@@ -48,12 +50,10 @@ app.get('/view',(req,res) => {
         title:"View Notes",
         notes:functions.getNotes()
     };
-    console.log(functions.getNotes());
+    console.log("By view bla bla " + params.notes);
     res.status(200).render('view',params);
 })
 
 app.listen(port,() => {
     console.log("Server is online");
 })
-
-console.log(functions.getNotes());

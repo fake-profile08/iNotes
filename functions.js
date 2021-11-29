@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/iNotes');
+var result;
+
 
 var noteSchema = new mongoose.Schema({
     title:String,
@@ -19,20 +21,23 @@ function addNote(body){
     });
 }
 
-function getNotes() {
-    var result;
+function storeNotes() {
     note.find({},function(err, obj){
         if(err) return console.error(err);
         result = obj;
         console.log("obj = "+obj);
     });
     console.log(result);
+}
+
+function getNotes(){
     return result;
 }
 
 let obj = {
     addNote,
-    getNotes
+    getNotes,
+    storeNotes,
 };
 
 module.exports = obj;
